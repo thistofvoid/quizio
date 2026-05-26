@@ -1,10 +1,19 @@
 <script>
 	import { pb } from '$lib/pocketbase';
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { auth } from '$lib/auth.svelte';
+	import { redirect } from '@sveltejs/kit';
 
 	let email = $state('');
 	let password = $state('');
 	let error = $state('');
+
+	onMount(() => {
+		if (auth.isValid) {
+			goto('/');
+		}
+	});
 
 	async function login() {
 		try {
@@ -24,7 +33,7 @@
 		</div>
 		<div class="flex flex-col">
 			<label for="password">Password</label>
-			<input class="input" bind:value={email} name="password" type="password" />
+			<input class="input" bind:value={password} name="password" type="password" />
 		</div>
 		<button class="btn" onclick={login}>Sign in</button>
 		<div>
