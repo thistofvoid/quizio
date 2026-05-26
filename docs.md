@@ -6,14 +6,14 @@ groups:
 
 - id
 - name
-- is-private
+- visibility [public, private]
 
 quiz
 
 - id
 - name
 - description
-- is-private
+- visibility [public-noauth, group-only, public-auth]
 - quiz-password
 - is-deleted
 
@@ -22,5 +22,5 @@ quiz-entries
 - id
 - quiz-id
 - text
-- answers
-- correct-answer
+- answers [answer_id, answer_text]
+- correct-answer [andswer_id, is_correct]
