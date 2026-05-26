@@ -22,5 +22,5 @@ quiz-entries
 - id
 - quiz-id
 - text
-- answers [answer_id, answer_text]
+- answers [id, text]
 - correct-answer [andswer_id, is_correct]
